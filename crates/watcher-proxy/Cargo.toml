@@ -1,0 +1,36 @@
+[package]
+name = "watcher-proxy"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Local HTTP, HTTPS, WebSocket, and HTTP/2 capture proxy"
+
+[dependencies]
+watcher-core = { path = "../watcher-core" }
+hudsucker = { version = "0.25", features = ["http2", "decoder", "rcgen-ca", "rustls-client"] }
+tokio.workspace = true
+http-body-util = "0.1"
+hyper = { version = "1", features = ["client", "server", "http1", "http2"] }
+hyper-util = { version = "0.1", features = ["client-legacy", "http1", "http2", "tokio", "server", "server-auto"] }
+hyper-rustls = { version = "0.27", default-features = false, features = ["http1", "http2", "tls12", "logging", "native-tokio"] }
+rustls-native-certs = "0.8"
+webpki-roots = "1"
+bytes = "1"
+http = "1"
+tower-service = "0.3"
+thiserror.workspace = true
+tokio-rustls = "0.26"
+futures = "0.3"
+
+[dev-dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "http2"] }
+tempfile = "3"
+rcgen.workspace = true
+tokio = { workspace = true, features = ["rt-multi-thread", "macros", "time", "net", "io-util"] }
+hyper = { version = "1", features = ["server", "http1"] }
+http-body-util = "0.1"
+hyper-util = { version = "0.1", features = ["tokio", "server", "http1"] }
+tokio-rustls = "0.26"
+rustls = { version = "0.23", default-features = false, features = ["std", "tls12", "ring"] }
+bytes = "1"

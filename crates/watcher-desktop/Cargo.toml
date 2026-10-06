@@ -1,0 +1,32 @@
+[package]
+name = "watcher-desktop"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Desktop debugger for Android HTTP traffic"
+default-run = "app-network-watcher"
+
+[lib]
+name = "watcher_desktop"
+path = "src/lib.rs"
+
+[[bin]]
+name = "app-network-watcher"
+path = "src/main.rs"
+
+[dependencies]
+watcher-core = { path = "../watcher-core" }
+watcher-proxy = { path = "../watcher-proxy" }
+serde_json.workspace = true
+qrcode = "0.14"
+time.workspace = true
+tokio.workspace = true
+
+[dependencies.iced]
+version = "0.14"
+features = ["tokio"]
+
+[dev-dependencies]
+tempfile = "3"
+tokio = { workspace = true, features = ["rt-multi-thread", "macros", "time", "net", "io-util"] }

@@ -1,0 +1,9 @@
+/target
+/dist
+.DS_Store
+**/*.rs.bk
+android/.gradle
+android/**/build
+android/local.properties
+android/.idea
+*.apk
